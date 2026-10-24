@@ -24,9 +24,40 @@ Notes and short video lessons include questions for checking what they’ve lear
 
 ## Code you can try
 
-The application source is private. I wrote a separate [lesson-progress example](examples/lesson-progress/README.md) for this repository: it counts watched sections of a video, handles overlapping intervals and leaves skipped sections unwatched.
+These examples were written separately for this repository and use made-up data. The application source remains private.
 
-It runs locally with Node.js 22 or newer, using made-up data. No dependencies or account needed. The [source](examples/lesson-progress/progress.mjs), [tests](examples/lesson-progress/progress.test.mjs) and [run instructions](examples/lesson-progress/README.md#run) are included.
+### Rewatching a lesson
+
+Watching seconds 0–30 and then 20–50 covers 50 seconds, not 60. Once the playback intervals have been validated, clipped to the video length and sorted, the calculation is small:
+
+```js
+let watched = 0;
+let coveredUntil = 0;
+
+for (const [start, end] of ranges) {
+  watched += Math.max(0, end - Math.max(start, coveredUntil));
+  coveredUntil = Math.max(coveredUntil, end);
+}
+```
+
+The input stays unchanged, and seeking past a section does not count as watching it. [Full example](examples/lesson-progress/progress.mjs), [tests](examples/lesson-progress/progress.test.mjs) and [run instructions](examples/lesson-progress/README.md#run).
+
+### A late response
+
+A student moves to question B while the hint for A is still loading. The old hint must not overwrite the new one. The helper aborts earlier work, then checks the request ID before updating the view. The check matters because a loader may ignore cancellation:
+
+```js
+const value = await load(controller.signal);
+
+if (requestId !== currentId) return "discarded";
+
+apply(value);
+return "applied";
+```
+
+Leaving the view invalidates the pending request too. Failures from the current request still reach the caller, so the screen can show an error or offer a retry. [Full example](examples/latest-request/latest-request.mjs), [tests](examples/latest-request/latest-request.test.mjs) and [run instructions](examples/latest-request/README.md#run).
+
+Both examples run locally with Node.js 22 or newer, without packages, API keys or network calls.
 
 ## Development
 
