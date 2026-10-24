@@ -1,6 +1,10 @@
 # Screenshot notes
 
-[English](#english) · [Қазақша](#қазақша) · [Русский](#русский)
+<p>
+  <a href="#english">English</a>&nbsp;&nbsp;&nbsp;
+  <a href="#қазақша">Қазақша</a>&nbsp;&nbsp;&nbsp;
+  <a href="#русский">Русский</a>
+</p>
 
 ## English
 

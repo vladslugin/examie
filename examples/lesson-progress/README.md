@@ -1,6 +1,10 @@
 # Lesson progress
 
-[English](#english) · [Қазақша](#қазақша) · [Русский](#русский)
+<p>
+  <a href="#english">English</a>&nbsp;&nbsp;&nbsp;
+  <a href="#қазақша">Қазақша</a>&nbsp;&nbsp;&nbsp;
+  <a href="#русский">Русский</a>
+</p>
 
 ## English
 
@@ -26,7 +30,7 @@ The caller must record actual playback intervals. A seek is not a watched interv
 
 Передавать нужно интервалы реального воспроизведения: перемотка сама по себе просмотром не считается. Пример не собирает события плеера, не хранит данные аккаунта, не определяет завершение урока и не проверяет внимание ученика. Данные для демонстрации вымышлены. Код приложения, банк заданий и закрытые сервисы не используются.
 
----
+## Run
 
 Node.js 22+. Run from the repository root / Репозиторийдің түбірлік бумасынан / Из корня репозитория:
 
@@ -41,4 +45,8 @@ Expected output / Күтілетін нәтиже / Ожидаемый выво�
 Watched: 70 / 120 seconds (58.3%)
 ```
 
-[Source / Код](progress.mjs) · [Tests / Тесттер / Тесты](progress.test.mjs) · [examie](../../README.md)
+<p>
+  <a href="progress.mjs">Source / Код</a>&nbsp;&nbsp;&nbsp;
+  <a href="progress.test.mjs">Tests / Тесттер / Тесты</a>&nbsp;&nbsp;&nbsp;
+  <a href="../../README.md">examie</a>
+</p>
